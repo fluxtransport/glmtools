@@ -586,8 +586,8 @@ def aggregate(glm, minutes, start_end=None):
         start = start_end[0]
         end = start_end[1]
     else:
-        start = pd.Timestamp(glm['time'].min().data[0]).to_pydatetime()
-        end = pd.Timestamp(glm['time'].max().data[0]).to_pydatetime() + dt
+        start = pd.Timestamp(glm['time'].data.min()).to_pydatetime()
+        end = pd.Timestamp(glm['time'].data.max()).to_pydatetime() + dt
         # dt_np = (end - start).data
         # duration = pd.to_timedelta(dt_np).to_pytimedelta()
     duration = end - start
